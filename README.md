@@ -33,16 +33,37 @@ sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/b
 ### Front-End Speech Enhancement
 We explored three methods of front-end speech enhancement: [SEVCAE](https://github.com/danielbraithwt/Speech-Enhancement-with-Variance-Constrained-Autoencoders), [Deep Xi](https://github.com/anicolson/DeepXi) and [DEMUCS](https://github.com/facebookresearch/denoiser). The base models were taken from the official aforementioned repositories. These speech enhancement models were finetuned by using noise samples from our custom dataset. After this, the mix clean speech from `train-clean-100` of LibriSpeech with our train-noise samples and store the outputs (*.wav files*). This is used to fine-tune using deepspeech 2 using the `Code/trainEnhanced.py` file. The dependent files include:
 ```
-trainEnhanced.py
- |- model.py
+Code/trainEnhanced.py
+ |- model.py (change utils.py accordingly)
  |- data/data_loader.py
- |- test.py (change utils.py accordingly)
+ |- test.py 
  ```
  ### Data-Augmentation Training 
+ The dependent files include:
+```
+Code/trainTLNoisy.py
+ |- model.py (change utils.py accordingly)
+ |- data/data_loader_noisy.py
+ |- test_noisy.py 
+ ```
  
  ### Multi-Task Learning
+ The dependent files include:
+```
+Code/trainMTLNoisy.py
+ |- model_split.py (change utils.py accordingly)
+ |- data/data_loader_noisy.py
+ |- test_noisy.py 
+ ```
  
  ### Adversarial Training
+ The dependent files include:
+```
+Code/trainDiffAdvNoisy.py
+ |- model_split_adversary.py (change utils.py accordingly)
+ |- data/data_loader_noisy.py
+ |- test_noisy.py 
+ ```
 
 
 ## Models
