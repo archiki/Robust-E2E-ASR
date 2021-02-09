@@ -39,7 +39,7 @@ Code/trainEnhanced.py
  |- test.py 
  ```
  ### Data-Augmentation Training 
- The dependent files include:
+ We have described two variants of data-augmentation training (DAT): Vanilla DAT and Soft-Freeze DAT. The training file for this experiment is `Code/trainTLNoisy.py`, here Vanilla DAT corresponds to the argument `--layers-scale 1` and Soft-Freeze DAT corresponds to `--layer-scale 0.5` (default). To train the model, supply the path to the noise dataset using the `--noise-dir` argument. Other `--noise-*` arguments control the level of noisiness in data. To control the layers in the Soft-Freeze DAT method, modify `frozen_parameters` in line 217.  The dependent files include:
 ```
 Code/trainTLNoisy.py
  |- model.py (change utils.py accordingly)
