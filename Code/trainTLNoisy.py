@@ -81,6 +81,8 @@ parser.add_argument('--seed', default=123456, type=int, help='Seed to generators
 parser.add_argument('--opt-level', type=str)
 parser.add_argument('--keep-batchnorm-fp32', type=str, default=None)
 parser.add_argument('--loss-scale', type=str, default=None)
+parser.add_argument('--layer-scale', default = 0.5, help='scale factor of the learning rate of the last layers', type =float)
+
 
 torch.manual_seed(123456)
 torch.cuda.manual_seed_all(123456)
@@ -212,8 +214,8 @@ if __name__ == '__main__':
     model = model.to(device)
     parameters = model.parameters()
 #    pdb.set_trace()
-    frozen_parameters = [{'params':model.rnns[4].parameters(), 'lr': 0.5*args.lr}, {'params':model.fc[0].parameters(), 'lr': 0.5*args.lr}, \
-                         {'params':model.rnns[3].parameters(), 'lr': 0.5*args.lr}, {'params':model.rnns[2].parameters()}, \
+    frozen_parameters = [{'params':model.rnns[4].parameters(), 'lr': args.layer_scale*args.lr}, {'params':model.fc[0].parameters(), 'lr': args.layer_scale*args.lr}, \
+                         {'params':model.rnns[3].parameters(), 'lr': args.layer_scale*args.lr}, {'params':model.rnns[2].parameters()}, \
                          {'params':model.rnns[1].parameters()}, {'params':model.rnns[0].parameters()}, {'params':model.conv.parameters()}]
     #pdb.set_trace()
     optimizer = torch.optim.SGD(frozen_parameters, lr=args.lr, momentum=args.momentum, nesterov=True, weight_decay=1e-5)
