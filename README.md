@@ -48,7 +48,7 @@ Code/trainTLNoisy.py
  ```
  
  ### Multi-Task Learning
- The dependent files include:
+ We use the `Code/trainMTLNoisy.py` file to train the models as per the multi-task learning setup. The 4 main hyperparameters of in our set up are: relative-weights of the hybrid loss (λ), scale of the cross-entropy loss (η), the annealing factor of this scale, and the position of the auxiliary classifier. These hyperparameters are set using the `--mtl-lambda`, `--scale`, `--scale-anneal`, and `--rnn-split` arguments respectively. Other hyperparamters of the train file are self-explainatory. The dependent files include:
 ```
 Code/trainMTLNoisy.py
  |- model_split.py (change utils.py accordingly)
