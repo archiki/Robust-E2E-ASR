@@ -48,7 +48,7 @@ Code/trainTLNoisy.py
  ```
  
  ### Multi-Task Learning
- We use the `Code/trainMTLNoisy.py` file to train the models as per the multi-task learning setup. The 4 main hyperparameters of in our set up are: relative-weights of the hybrid loss (λ), scale of the cross-entropy loss (η), the annealing factor of this scale, and the position of the auxiliary classifier. These hyperparameters are set using the `--mtl-lambda`, `--scale`, `--scale-anneal`, and `--rnn-split` arguments respectively. Other hyperparamters of the train file are self-explainatory. The dependent files include:
+ We use the `Code/trainMTLNoisy.py` file to train the models as per the multi-task learning setup. The 4 main hyperparameters of in our set up are: relative-weights of the hybrid loss (λ), scale of the cross-entropy loss (η), the annealing factor of this scale, and the position of the auxiliary noise classifier. These hyperparameters are set using the `--mtl-lambda`, `--scale`, `--scale-anneal`, and `--rnn-split` arguments respectively. Other hyperparamters of the train file are self-explainatory. The dependent files include:
 ```
 Code/trainMTLNoisy.py
  |- model_split.py (change utils.py accordingly)
@@ -57,7 +57,7 @@ Code/trainMTLNoisy.py
  ```
  
  ### Adversarial Training
- The dependent files include:
+ We use the `Code/trainDiffAdvNoisy.py` file to train the models as per the adversarial training setup. The key hyper-parameters here are: learning rate scale factor of the feature extractor (λf),learning rate scale factor of the recongition model (λr), learning rate scale factor of the noise classifier (λn), and the position of the discriminator (noise) classifier. These are set using the `--lr-factor`, `--recog-factor`, `--noise-factor`, and `--rnn-split` respectively. To use only linear layers in the noise classifier, which in our experience works better, use `--only-fc True`.The dependent files include:
 ```
 Code/trainDiffAdvNoisy.py
  |- model_split_adversary.py (change utils.py accordingly)
