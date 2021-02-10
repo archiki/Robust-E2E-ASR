@@ -73,7 +73,7 @@ python test.py --test-manifest-path [path to noisy speech] --SNR-start 0 --SNR-s
 ```
 
 ## Models
-We will be uploading our pretrained models shortly. In the meantime, please contact us personally for the pretrained models.
+We will be uploading our pretrained models shortly. In the meantime, please contact us personally for the same.
 
 ## Datasets
 
