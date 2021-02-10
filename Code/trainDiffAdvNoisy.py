@@ -201,7 +201,7 @@ if __name__ == '__main__':
 			nclasses = 8
 
 		noise_model = NoiseClassifier(rnn_hidden_size=args.hidden_size,
-						   nb_layers=1, #only FC
+						   nb_layers=1, 
 						   rnn_type=supported_rnns[args.rnn_type.lower()],
 						   bidirectional=args.bidirectional,nclasses=nclasses)
 		if args.only_fc :
