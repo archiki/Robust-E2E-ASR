@@ -4,6 +4,7 @@
 This repository contains the code for our upcoming paper **An Investigation of End-to-End Models for Robust Speech Recognition** at [**ICASSP 2021**](https://2021.ieeeicassp.org/).
 
 ## Introduction
+End-to-end models for robust automatic speech recognition (ASR) have not been sufficiently well-explored in prior work. With end-to-end models, one could choose to preprocess the input speech using speech enhancement techniques (such as: [SEVCAE](https://github.com/danielbraithwt/Speech-Enhancement-with-Variance-Constrained-Autoencoders), [Deep Xi](https://github.com/anicolson/DeepXi) and [DEMUCS](https://github.com/facebookresearch/denoiser)) and train the model using enhanced speech. Another alternative is to pass the noisy speech as input and modify the model architecture to adapt to noisy speech (via techniques such as data-augmentation, multi-task leaning, and adversarial training). In this work, we make the first attempt to a systematic comparison of these two approaches for end-to-end robust ASR.
 
 ## Requirements
 * [Docker](https://docs.docker.com/engine/release-notes/): Version 19.03.1, build 74b1e89
@@ -29,6 +30,7 @@ sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/b
 
 ## Experiments
 
+Here is an [example](https://github.com/archiki/ASR-Accent-Analysis/tree/master/DeepSpeech/models) used to train the baseline system only on LibriSpeech. This shows the usage of the basic arguments used for training, along with the pretrained baseline model.
 
 ### Front-End Speech Enhancement
 We explored three methods of front-end speech enhancement: [SEVCAE](https://github.com/danielbraithwt/Speech-Enhancement-with-Variance-Constrained-Autoencoders), [Deep Xi](https://github.com/anicolson/DeepXi) and [DEMUCS](https://github.com/facebookresearch/denoiser). The base models were taken from the official aforementioned repositories. These speech enhancement models were finetuned by using noise samples from our custom dataset. After this, the mix clean speech from `train-clean-100` of LibriSpeech with our train-noise samples and store the outputs (*.wav files*). This is used to fine-tune using deepspeech 2 using the `Code/trainEnhanced.py` file. The dependent files include:
