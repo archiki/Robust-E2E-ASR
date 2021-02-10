@@ -19,11 +19,11 @@ parser.add_argument('--num-workers', default=4, type=int, help='Number of worker
 parser.add_argument('--verbose', action="store_true", help="print out decoded output and error of each sample")
 parser.add_argument('--save-output', default=None, help="Saves output of model from test to this file_path")
 parser.add_argument('--test-noise',default=None,help='Provide test noise samples')
-parser.add_argument('--SNR-start', default=None,type=int, help = 'Provide SNR for noise injection')
-parser.add_argument('--SNR-stop', default=None,type=int, help = 'Provide SNR for noise injection')
-parser.add_argument('--SNR-step', default=5,type=int, help = 'Provide SNR for noise injection')
+parser.add_argument('--SNR-start', default=None,type=int, help = 'Provide starting SNR for noise injection')
+parser.add_argument('--SNR-stop', default=None,type=int, help = 'Provide ending SNR for noise injection')
+parser.add_argument('--SNR-step', default=5,type=int, help = 'Provide SNR steps between intermediate SNRs for noise injection')
 
-parser.add_argument('--SNR', default=None,type=int, help = 'Provide SNR for noise injection')
+#parser.add_argument('--SNR', default=None,type=int, help = 'Provide SNR for noise injection')
 parser = add_decoder_args(parser)
 
 
