@@ -57,14 +57,18 @@ Code/trainMTLNoisy.py
  ```
  
  ### Adversarial Training
- We use the `Code/trainDiffAdvNoisy.py` file to train the models as per the adversarial training setup. The key hyper-parameters here are: learning rate scale factor of the feature extractor (λf),learning rate scale factor of the recongition model (λr), learning rate scale factor of the noise classifier (λn), and the position of the discriminator (noise) classifier. These are set using the `--lr-factor`, `--recog-factor`, `--noise-factor`, and `--rnn-split` respectively. To use only linear layers in the noise classifier, which in our experience works better, use `--only-fc True`.The dependent files include:
+ We use the `Code/trainDiffAdvNoisy.py` file to train the models as per the adversarial training setup. The key hyper-parameters here are: learning rate scale factor of the feature extractor (λf),learning rate scale factor of the recongition model (λr), learning rate scale factor of the noise classifier (λn), and the position of the discriminator (noise) classifier. These hyperparameters are set using the `--lr-factor`, `--recog-factor`, `--noise-factor`, and `--rnn-split` respectively. To use only linear layers in the noise classifier, which in our experience works better, use `--only-fc True`.The dependent files include:
 ```
 Code/trainDiffAdvNoisy.py
  |- model_split_adversary.py (change utils.py accordingly)
  |- data/data_loader_noisy.py
  |- test_noisy.py 
  ```
-
+### Testing on Noisy Speech
+The following command is used to evaluate the performance on the test noisy speech: 
+```
+python test.py --test-manifest-path [path to noisy speech] --SNR-start 0 --SNR-stop 20 --SNR-step 5
+```
 
 ## Models
 
