@@ -1,5 +1,5 @@
 # End-to-End Models for Robust Speech Recognition
-[**Requirements**](#Requirements) | [**Instructions**](#Instructions) | [**Experiments**](#Experiments) | [**Paper**](https://archiki.github.io/files/ICASSP.pdf) | [**Datasets**]()
+[**Requirements**](#Requirements) | [**Instructions**](#Instructions) | [**Experiments**](#Experiments) | [**Paper**](https://archiki.github.io/files/ICASSP.pdf) | [**Datasets**](https://drive.google.com/file/d/1hPHN9S8Q4zmFtb9PaFTgxMjZCAe5ZQY1/view?usp=sharing)
 
 This repository contains the code for our upcoming paper **An Investigation of End-to-End Models for Robust Speech Recognition** at [**ICASSP 2021**](https://2021.ieeeicassp.org/).
 
@@ -25,7 +25,7 @@ sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/b
 ```
 3. Install all the requirements using `pip install -r requirements.txt`
 4. Clone this repository code inside the docker container in the directory `/workspace/` and install the other requirements.
-5. Install the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes as well as our [custom noise datasets]().
+5. Install the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes as well as our [custom noise datasets](https://drive.google.com/file/d/1hPHN9S8Q4zmFtb9PaFTgxMjZCAe5ZQY1/view?usp=sharing).
 6. **Preparing Manifests**: The data used in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) is required to be in *.csv* called *manifests* with two columns: `path to .wav file, path to .txt file`. The *.wav* file is the speech clip and the *.txt* files contain the transcript in upper case. For Librispeech, use the `data/librispeech.py` in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). Similarly, *manifests* for the noisy speech in the test set of our data can be prepared by retrieving the transcripts using the *file IDs* from the names of the files in the test noisy speech set. The files are names are in the format: `[file ID]_[Noise Type]_[SNR]db.wav`.
 
 ## Experiments
