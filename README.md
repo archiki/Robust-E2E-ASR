@@ -81,9 +81,12 @@ If you use our techniques, dataset or code in this repository, please consider c
 @article{prasad2021investigation,
   title={An Investigation of End-to-End Models for Robust Speech Recognition},
   author={Prasad, Archiki and Jyothi, Preethi and Velmurugan, Rajbabu},
-  journal={arXiv preprint arXiv:2102.06237},
+  journal={CoRR},
   year={2021}
-}
+  volume={abs/2102.06237},
+  archivePrefix={arXiv}
+  eprint={2102.06237}
+  }
 ```
 
 
