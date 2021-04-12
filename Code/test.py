@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 import pickle
-from data.data_loader_specAugment import SpectrogramDataset, AudioDataLoader
+from data.data_loader import SpectrogramDataset, AudioDataLoader
 from decoder import GreedyDecoder
 from opts import add_decoder_args, add_inference_args
 from utils import load_model
