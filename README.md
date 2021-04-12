@@ -1,5 +1,5 @@
 # End-to-End Models for Robust Speech Recognition
-[**Requirements**](#Requirements) | [**Instructions**](#Instructions) | [**Experiments**](#Experiments) | [**Paper**](https://archiki.github.io/files/ICASSP.pdf) | [**Datasets**](https://drive.google.com/file/d/1hPHN9S8Q4zmFtb9PaFTgxMjZCAe5ZQY1/view?usp=sharing)
+[**Requirements**](#Requirements) | [**Instructions**](#Instructions) | [**Experiments**](#Experiments) | [**Paper**](https://arxiv.org/abs/2102.06237) | [**Datasets**](https://drive.google.com/file/d/1hPHN9S8Q4zmFtb9PaFTgxMjZCAe5ZQY1/view?usp=sharing)
 
 This repository contains the code for our upcoming paper **An Investigation of End-to-End Models for Robust Speech Recognition** at [**ICASSP 2021**](https://2021.ieeeicassp.org/).
 
@@ -73,7 +73,21 @@ python test.py --test-manifest-path [path to noisy speech] --SNR-start 0 --SNR-s
 ```
 
 ## Datasets
+We use the [Librispeech Dataset](www.openslr.org/12/) for clean speech as well as our [custom noise datasets](https://drive.google.com/file/d/1hPHN9S8Q4zmFtb9PaFTgxMjZCAe5ZQY1/view?usp=sharing) for noisy speech.
 
 ## Paper
+If you use our techniques, dataset or code in this repository, please consider citing our paper `\cite{prasad2021investigation}`.
+```bib
+@article{prasad2021investigation,
+  title={An Investigation of End-to-End Models for Robust Speech Recognition},
+  author={Prasad, Archiki and Jyothi, Preethi and Velmurugan, Rajbabu},
+  journal={CoRR},
+  year={2021}
+  volume={abs/2102.06237},
+  archivePrefix={arXiv}
+  eprint={2102.06237}
+  }
+```
+
 
 
