@@ -151,7 +151,7 @@ if __name__ == '__main__':
                                      target_decoder=target_decoder,
                                      save_output=args.save_output,
                                      verbose=args.verbose,
-                                     half=args.half, wer_dict= wer_dict,SNR=args.SNR)
+                                     half=args.half, wer_dict= wer_dict)
 
     print('Test Summary \t'
           'Average WER {wer:.3f}\t'
