@@ -36,35 +36,35 @@ Here is an [example](https://github.com/archiki/ASR-Accent-Analysis/tree/master/
 We explored three methods of front-end speech enhancement: [SEVCAE](https://github.com/danielbraithwt/Speech-Enhancement-with-Variance-Constrained-Autoencoders), [Deep Xi](https://github.com/anicolson/DeepXi) and [DEMUCS](https://github.com/facebookresearch/denoiser). The base models were taken from the official aforementioned repositories. These speech enhancement models were finetuned by using noise samples from our custom dataset. After this, the mix clean speech from `train-clean-100` of LibriSpeech with our train-noise samples and store the outputs (*.wav files*). This is used to fine-tune using deepspeech 2 using the `Code/trainEnhanced.py` file. The dependent files include:
 ```
 Code/trainEnhanced.py
- |- model.py (change utils.py accordingly)
- |- data/data_loader.py
- |- test.py 
+ ├── model.py (change utils.py accordingly)
+ ├── data/data_loader.py
+ ├── test.py 
  ```
  ### Data-Augmentation Training 
  We have described two variants of data-augmentation training (DAT): Vanilla DAT and Soft-Freeze DAT. The training file for this experiment is `Code/trainTLNoisy.py`, here Vanilla DAT corresponds to the argument `--layers-scale 1` and Soft-Freeze DAT corresponds to `--layer-scale 0.5` (default). To train the model, supply the path to the noise dataset using the `--noise-dir` argument. Other `--noise-*` arguments control the level of noisiness in data. To control the layers in the Soft-Freeze DAT method, modify `frozen_parameters` in line 217.  The dependent files include:
 ```
 Code/trainTLNoisy.py
- |- model.py (change utils.py accordingly)
- |- data/data_loader_noisy.py
- |- test_noisy.py 
+ ├── model.py (change utils.py accordingly)
+ ├── data/data_loader_noisy.py
+ ├── test_noisy.py 
  ```
  
  ### Multi-Task Learning
  We use the `Code/trainMTLNoisy.py` file to train the models as per the multi-task learning setup. The 4 main hyperparameters of in our set up are: relative-weights of the hybrid loss (λ), scale of the cross-entropy loss (η), the annealing factor of this scale, and the position of the auxiliary noise classifier. These hyperparameters are set using the `--mtl-lambda`, `--scale`, `--scale-anneal`, and `--rnn-split` arguments respectively. Other hyperparamters of the train file are self-explainatory. The dependent files include:
 ```
 Code/trainMTLNoisy.py
- |- model_split.py (change utils.py accordingly)
- |- data/data_loader_noisy.py
- |- test_noisy.py 
+ ├── model_split.py (change utils.py accordingly)
+ ├── data/data_loader_noisy.py
+ ├── test_noisy.py 
  ```
  
  ### Adversarial Training
  We use the `Code/trainDiffAdvNoisy.py` file to train the models as per the adversarial training setup. The key hyper-parameters here are: learning rate scale factor of the feature extractor (λf),learning rate scale factor of the recongition model (λr), learning rate scale factor of the noise classifier (λn), and the position of the discriminator (noise) classifier. These hyperparameters are set using the `--lr-factor`, `--recog-factor`, `--noise-factor`, and `--rnn-split` respectively. To use only linear layers in the noise classifier, which in our experience works better, use `--only-fc True`.The dependent files include:
 ```
 Code/trainDiffAdvNoisy.py
- |- model_split_adversary.py (change utils.py accordingly)
- |- data/data_loader_noisy.py
- |- test_noisy.py 
+ ├── model_split_adversary.py (change utils.py accordingly)
+ ├── data/data_loader_noisy.py
+ ├── test_noisy.py 
  ```
 ### Testing on Noisy Speech
 The following command is used to evaluate the performance on the test noisy speech: 
